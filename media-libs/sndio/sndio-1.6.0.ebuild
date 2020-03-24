@@ -17,7 +17,9 @@ DEPEND="media-libs/alsa-lib
 RDEPEND="${DEPEND}"
 BDEPEND="${DEPEND}"
 
+PATCHES=("${FILESDIR}/${PV}-accept-arguments.diff")
+
 src_configure() {
-	econf --enable-alsa $(use_with libbsd)
+	econf --enable-alsa $(use_with libbsd) || die
 }
 
