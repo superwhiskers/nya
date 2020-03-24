@@ -10,7 +10,7 @@ SRC_URI="http://www.sndio.org/${P}.tar.gz"
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="libbsd"
 
 DEPEND="media-libs/alsa-lib
 	libbsd? ( dev-libs/libbsd )"
