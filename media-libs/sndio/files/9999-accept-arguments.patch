@@ -1,0 +1,15 @@
+*** sndio/configure	2020-03-24 16:32:13.611179329 -0500
+--- sndio/configure	2020-03-24 16:32:23.246415437 -0500
+***************
+*** 173,182 ****
+  	CC=*|CFLAGS=*|LDFLAGS=*)
+  		vars="$vars$i$nl"
+  		shift;;
+- 	*)
+- 		help
+- 		exit 1
+- 		;;
+  	esac
+  done
+  
+--- 173,178 ----
