@@ -16,8 +16,5 @@
 		 through simplicity are part of the project goals.
 	</longdescription>
 	<use>
-		<flag name="alsa">Enable ALSA audio & midi backends</flag>
-		<flag name="sun">Enable sun audio backend</flag>
-		<flag name="umidi">Enable usb-midi backend</flag>
 		<flag name="libbsd">Use libbsd instead of bsd-compat</flag>
 </pkgmetadata>

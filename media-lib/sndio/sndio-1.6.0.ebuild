@@ -12,6 +12,12 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND=""
+DEPEND="media-libs/alsa-lib
+	libbsd? ( dev-libs/libbsd )"
 RDEPEND="${DEPEND}"
-BDEPEND=""
+BDEPEND="${DEPEND}"
+
+src_configure() {
+	econf --enable-alsa $(use_with libbsd)
+}
+
