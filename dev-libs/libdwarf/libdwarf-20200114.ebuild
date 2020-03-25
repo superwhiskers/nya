@@ -17,7 +17,11 @@ RDEPEND="${DEPEND}"
 BDEPEND="${DEPEND}"
 
 src_configure() {
-	econf --enable-shared $(use_enable static-libs)
+	if [ $(use static-libs) ]; then
+		econf --enable-shared --enable-static
+	else
+		econf --enable-shared --disable-static
+	fi
 }
 
 src_install() {
@@ -26,9 +30,9 @@ src_install() {
 
 	install -d "${D}"/usr/lib
 	if [ $(use static-libs) ]; then
-		install libdwarf.a "${D}"/usr/lib
+		install .libs/libdwarf.a "${D}"/usr/lib
 	fi
-	install libdwarf.so "${D}"/usr/lib
+	install .libs/libdwarf.so "${D}"/usr/lib
 
 	install -d "${D}"/usr/include/libdwarf
 	install dwarf.h libdwarf.h "${D}"/usr/include/libdwarf
