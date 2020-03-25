@@ -17,4 +17,5 @@
 	</longdescription>
 	<use>
 		<flag name="libbsd">Use libbsd instead of bsd-compat</flag>
+	</use>
 </pkgmetadata>
