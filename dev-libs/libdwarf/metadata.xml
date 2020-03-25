@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>whiskerdev@protonmail.com</email>
+	</maintainer>
+	<longdescription lang="en">
+		A DWARF object file access library 
+	</longdescription>
+	<use>
+		<flag name="dwarfgen">Enable dwarfgen compilation</flag>
+		<flag name="dwarfexample">Enable dwarfexample compilation</flag>
+	</use>
+</pkgmetadata>

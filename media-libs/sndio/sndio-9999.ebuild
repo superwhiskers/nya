@@ -24,4 +24,3 @@ PATCHES=("${FILESDIR}/${PV}-accept-arguments.patch")
 src_configure() {
 	econf --enable-alsa $(use_with libbsd) || die
 }
-
