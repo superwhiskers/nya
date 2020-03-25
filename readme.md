@@ -6,7 +6,6 @@ superwhiskers' random ebuilds for obscure things
 
 ```
 $ sudo layman -o https://github.com/superwhiskers/nya/raw/master/repositories.xml -f -a nya
-$ sudo layman-updater -R
 ```
 
 ## contents
