@@ -17,7 +17,7 @@ RDEPEND="${DEPEND}"
 BDEPEND="${DEPEND}"
 
 src_configure() {
-	econf --enable-shared $(use_enable dwarfgen) $(use_enable static-libs)
+	econf --enable-shared $(use_enable static-libs)
 }
 
 src_install() {
