@@ -7,7 +7,7 @@ DESCRIPTION="A small audio and MIDI framework part of the OpenBSD project"
 HOMEPAGE="http://www.sndio.org"
 SRC_URI="http://www.sndio.org/${PN}.tar.gz"
 
-S="sndio"
+S="${WORKDIR}/sndio"
 
 LICENSE="BSD-2"
 SLOT="0"
