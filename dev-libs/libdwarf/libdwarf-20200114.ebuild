@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit cmake
+
 DESCRIPTION="A DWARF object file access library"
 HOMEPAGE="https://www.prevanders.net/dwarf.html"
 SRC_URI="https://www.prevanders.net/${P}.tar.gz"
@@ -15,7 +17,3 @@ IUSE="dwarfgen dwarfexample"
 DEPEND="sys-libs/zlib"
 RDEPEND="${DEPEND}"
 BDEPEND="${DEPEND}"
-
-src_configure() {
-	econf --disable-libelf $(use_enable dwarfgen) $(use_enable dwarfexample)
-}
