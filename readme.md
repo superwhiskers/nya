@@ -11,4 +11,5 @@ $ sudo layman -o https://github.com/superwhiskers/nya/raw/master/repositories.xm
 ## contents
 
 - **dev-lang/qbe** - a pure c embeddable compiler backend
+- **dev-libs/libdwarf** - a dwarf object file access library
 - **media-libs/sndio** - a small audio and midi framework part of the openbsd project
