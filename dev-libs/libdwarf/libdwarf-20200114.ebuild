@@ -35,6 +35,7 @@ src_install() {
 		install .libs/libdwarf.a "${D}"/usr/"$(get_libdir)"
 	fi
 	install .libs/libdwarf.so "${D}"/usr/"$(get_libdir)"
+	install .libs/libdwarf.so.1 "${D}"/usr/"$(get_libdir)"
 
 	install -d "${D}"/usr/include/libdwarf
 	install dwarf.h libdwarf.h "${D}"/usr/include/libdwarf
@@ -44,7 +45,7 @@ src_install() {
 	# dwarfdump
 	cd "${S}"/dwarfdump
 
-	install -D dwarfdump "${D}"/usr/bin/dwarfdump
+	install -D .libs/dwarfdump "${D}"/usr/bin/dwarfdump
 	install -D dwarfdump.conf "${D}"/usr/"$(get_libdir)"/dwarfdump.conf
 
 	doman dwarfdump.1
