@@ -17,5 +17,5 @@ RDEPEND="${DEPEND}"
 BDEPEND="${DEPEND}"
 
 src_configure() {
-	econf $(use_enable dwarfgen) $(use_enable dwarfexample)
+	econf --disable-libelf $(use_enable dwarfgen) $(use_enable dwarfexample)
 }
