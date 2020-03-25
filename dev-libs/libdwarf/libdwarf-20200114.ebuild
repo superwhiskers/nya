@@ -3,6 +3,8 @@
 
 EAPI=7
 
+inherit multilib
+
 DESCRIPTION="A DWARF object file access library"
 HOMEPAGE="https://www.prevanders.net/dwarf.html"
 SRC_URI="https://www.prevanders.net/${P}.tar.gz"
@@ -28,11 +30,11 @@ src_install() {
 	# libdwarf
 	cd "${S}"/libdwarf
 
-	install -d "${D}"/usr/lib
+	install -d "${D}"/usr/"$(get_libdir)"
 	if [ $(use static-libs) ]; then
-		install .libs/libdwarf.a "${D}"/usr/lib
+		install .libs/libdwarf.a "${D}"/usr/"$(get_libdir)"
 	fi
-	install .libs/libdwarf.so "${D}"/usr/lib
+	install .libs/libdwarf.so "${D}"/usr/"$(get_libdir)"
 
 	install -d "${D}"/usr/include/libdwarf
 	install dwarf.h libdwarf.h "${D}"/usr/include/libdwarf
@@ -43,7 +45,7 @@ src_install() {
 	cd "${S}"/dwarfdump
 
 	install -D dwarfdump "${D}"/usr/bin/dwarfdump
-	install -D dwarfdump.conf "${D}"/usr/lib/dwarfdump.conf
+	install -D dwarfdump.conf "${D}"/usr/"$(get_libdir)"/dwarfdump.conf
 
 	doman dwarfdump.1
 }
