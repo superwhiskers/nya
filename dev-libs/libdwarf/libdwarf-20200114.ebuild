@@ -12,7 +12,7 @@ SRC_URI="https://www.prevanders.net/${P}.tar.gz"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="dwarfgen dwarfexample"
+IUSE=""
 
 DEPEND="sys-libs/zlib"
 RDEPEND="${DEPEND}"

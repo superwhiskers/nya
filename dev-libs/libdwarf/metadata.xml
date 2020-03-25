@@ -7,8 +7,4 @@
 	<longdescription lang="en">
 		A DWARF object file access library 
 	</longdescription>
-	<use>
-		<flag name="dwarfgen">Enable dwarfgen compilation</flag>
-		<flag name="dwarfexample">Enable dwarfexample compilation</flag>
-	</use>
 </pkgmetadata>
