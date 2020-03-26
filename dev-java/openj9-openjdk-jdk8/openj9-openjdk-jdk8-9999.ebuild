@@ -26,7 +26,7 @@ IUSE="gentoo-vm cuda alsa cups jitserver headless-awt debug doc examples source 
 COMMON_DEPEND="
 	sys-process/numactl
 	dev-libs/libdwarf
-	dev-libs/libelf
+	dev-libs/elfutils
 	media-libs/freetype:2=
 	media-libs/giflib:0/7
 	sys-libs/zlib

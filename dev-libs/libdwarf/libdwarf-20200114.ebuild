@@ -14,7 +14,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc64 ~x86"
 IUSE="static-libs"
 
-DEPEND="sys-libs/zlib"
+DEPEND="
+	sys-libs/zlib
+	dev-libs/elfutils
+	"
 RDEPEND="${DEPEND}"
 BDEPEND="${DEPEND}"
 
