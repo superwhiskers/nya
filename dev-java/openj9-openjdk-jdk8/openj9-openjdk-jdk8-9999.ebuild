@@ -174,7 +174,7 @@ src_install() {
 
 	dosym ../../../../../../etc/ssl/certs/java/cacerts "${dest}"/jre/lib/security/cacerts
 
-	java-vm_install-env "${FILESDIR}"/${PN}-live.env.sh
+	use gentoo-vm && java-vm_install-env "${FILESDIR}"/${PN}-live.env.sh
 	java-vm_set-pax-markings "${ddest}"
 	java-vm_revdep-mask
 	java-vm_sandbox-predict /dev/random /proc/self/coredump_filter
