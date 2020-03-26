@@ -7,7 +7,12 @@ inherit git-r3 java-pkg-2 java-vm-2 pax-utils eapi7-ver
 
 DESCRIPTION="An optimized JVM for OpenJDK 8"
 HOMEPAGE="http://www.eclipse.org/openj9"
-SRC_URI="https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u242-b08_openj9-0.18.1/OpenJDK8U-jdk_x64_linux_openj9_8u242b08_openj9-0.18.1.tar.gz -> bootstrap_jdk.tar.gz"
+SRC_URI="
+	https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u242-b08_openj9-0.18.1/OpenJDK8U-jdk_x64_linux_openj9_8u242b08_openj9-0.18.1.tar.gz -> bootstrap_jdk.tar.gz
+	https://sourceforge.net/projects/freemarker/files/freemarker/2.3.8/freemarker-2.3.8.tar.gz/download -> freemarker.tar.gz
+	https://github.com/eclipse/openj9/archive/master.tar.gz -> openj9.tar.gz
+	https://github.com/eclipse/openj9-omr/archive/openj9.tar.gz -> openj9-omr.tar.gz
+	"
 EGIT_REPO_URI="https://github.com/ibmruntimes/openj9-openjdk-jdk8.git"
 
 LICENSE="GPL-2-with-classpath-exception"
@@ -15,9 +20,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc64 ~x86"
 
 S="${WORKDIR}/${P}"
-BOOTSTRAP_JDK_PATH="${WORKDIR}/jdk8u242-b08"
-
-FREEMARKER_PATH=""
 
 # todo:
 # - webstart + nsplugin
@@ -78,21 +80,23 @@ src_prepare() {
 
 	tar -vxzf "${DISTDIR}"/bootstrap_jdk.tar.gz -C "${WORKDIR}" || die
 
-	sh get_source.sh || die
-	chmod +x configure || die
+	tar -vxzf "${DISTDIR}"/freemarker.tar.gz freemarker-2.3.8/lib/freemarker.jar --strip=2 -C "${WORKDIR}" || die
 
-	wget https://sourceforge.net/projects/freemarker/files/freemarker/2.3.8/freemarker-2.3.8.tar.gz/download -O freemarker.tar.gz || die
-	tar -vxzf freemarker.tar.gz freemarker-2.3.8/lib/freemarker.jar --strip=2 || die
-	rm freemarker.tar.gz || die
-	FREEMARKER_PATH=$(realpath freemarker.jar)
+	tar -vxzf "${DISTDIR}"/openj9.tar.gz -C "${S}" || die
+	mv openj9-master openj9 || die
+
+	tar -vxzf "${DISTDIR}"/openj9-omr.tar.gz -C "${S}" || die
+	mv openj9-omr-openj9 omr || die
+
+	chmod +x configure || die
 }
 
 src_configure() {
 
 	local configuration=(
 		--disable-ccache
-		--with-freemarker-jar="${FREEMARKER_PATH}"
-		--with-boot-jdk="${BOOTSTRAP_JDK_PATH}"
+		--with-freemarker-jar="${WORKDIR}/freemarker.jar"
+		--with-boot-jdk="${WORKDIR}/jdk8u242-b08"
 		--with-extra-cflags="${CFLAGS}"
 		--with-extra-cxxflags="${CXXFLAGS}"
 		--with-extra-ldflags="${LDFLAGS}"
