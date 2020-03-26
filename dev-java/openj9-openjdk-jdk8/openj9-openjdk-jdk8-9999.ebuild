@@ -141,7 +141,7 @@ src_compile() {
 		LOG=debug
 		$(usex doc docs '')
 	)
-	emake "${makeargs[@]}" -j1
+	emake all "${makeargs[@]}" -j1
 }
 
 src_install() {
