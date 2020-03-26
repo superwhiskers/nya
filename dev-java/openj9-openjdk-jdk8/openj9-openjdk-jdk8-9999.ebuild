@@ -117,7 +117,6 @@ src_configure() {
 		$(usex large-heap --with-noncompressedrefs '')
 		$(use_enable cuda)
 		$(use_enable jitserver)
-		$(use_enable debug)
 	)
 
 	if use pch && ! host-is-pax; then
