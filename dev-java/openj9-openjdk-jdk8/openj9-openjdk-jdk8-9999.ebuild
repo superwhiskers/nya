@@ -7,7 +7,7 @@ inherit git-r3 java-pkg-2 java-vm-2 pax-utils eapi7-ver
 
 DESCRIPTION="An optimized JVM for OpenJDK 8"
 HOMEPAGE="http://www.eclipse.org/openj9"
-SRC_URI="https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u242-b08_openj9-0.18.1/OpenJDK8U-jdk_x64_linux_openj9_8u242b08_openj9-0.18.1.tar.gz"
+SRC_URI="https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u242-b08_openj9-0.18.1/OpenJDK8U-jdk_x64_linux_openj9_8u242b08_openj9-0.18.1.tar.gz -> bootstrap_jdk.tar.gz"
 EGIT_REPO_URI="https://github.com/ibmruntimes/openj9-openjdk-jdk8.git"
 
 LICENSE="GPL-2-with-classpath-exception"
@@ -15,7 +15,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc64 ~x86"
 
 BOOTSTRAP_JDK_PATH="${WORKDIR}/jdk8u242-b08"
-S="${WORKDIR}/openj9-openjdk-jdk8"
 
 FREEMARKER_PATH=""
 
@@ -75,6 +74,8 @@ pkg_setup() {
 
 src_prepare() {
 	default
+
+	tar -vxzf ${DISTDIR}/bootstrap_jdk.tar.gz -C ${WORKDIR} || die
 
 	sh get_source.sh || die
 	chmod +x configure || die
