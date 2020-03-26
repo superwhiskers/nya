@@ -76,7 +76,7 @@ pkg_setup() {
 src_prepare() {
 	default
 
-	tar -vxzf ${DISTDIR}/bootstrap_jdk.tar.gz -C ${WORKDIR} || die
+	tar -vxzf "${DISTDIR}"/bootstrap_jdk.tar.gz -C "${WORKDIR}" || die
 
 	sh get_source.sh || die
 	chmod +x configure || die
