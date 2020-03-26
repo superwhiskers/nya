@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit git-r3 java-pkg-2 java-vm-2 pax-utils eapi7-ver
+inherit git-r3 java-pkg-2 java-vm-2 pax-utils eapi7-ver multiprocessing
 
 DESCRIPTION="An optimized JVM for OpenJDK 8"
 HOMEPAGE="http://www.eclipse.org/openj9"
@@ -138,10 +138,11 @@ src_configure() {
 
 src_compile() {
 	local makeargs=(
+		JOBS=$(makeopts_jobs)
 		LOG=debug
 		$(usex doc docs '')
 	)
-	emake "${makeargs[@]}"
+	emake "${makeargs[@]}" -j1
 }
 
 src_install() {
