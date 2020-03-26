@@ -14,6 +14,7 @@ LICENSE="GPL-2-with-classpath-exception"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc64 ~x86"
 
+S="${WORKDIR}/${P}"
 BOOTSTRAP_JDK_PATH="${WORKDIR}/jdk8u242-b08"
 
 FREEMARKER_PATH=""
