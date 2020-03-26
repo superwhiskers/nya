@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>whiskerdev@protonmail.com</email>
+	</maintainer>
+	<longdescription lang="en">
+		A Java Virtual Machine for OpenJDK 8 that's optimized for
+		small footprint, fast start-up, and high throughput.
+	</longdescription>
+	<use>
+		<flag name="gentoo-vm">Allow this JDK to be recognized by Gentoo (package manger, eselect, java-config, EXPERIMENTAL!)</flag>
+		<flag name="cuda">Enable CUDA support</flag>
+		<flag name="headless-awt">Don't install the X backend for AWT, needed by some GUIs</flag>
+		<flag name="source">Install JVM sources</flag>
+		<flag name="openssl">Enable openssl support</flag>
+		<flag name="large-heap">Build a noncompressed-refs vm (heap size >57gb)</flag>
+		<flag name="jitserver">Build and enable jitserver support</flag>
+	</use>
+</pkgmetadata>

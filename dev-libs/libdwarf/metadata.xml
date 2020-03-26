@@ -7,7 +7,4 @@
 	<longdescription lang="en">
 		A DWARF object file access library 
 	</longdescription>
-	<use>
-		<flag name="static-libs">Build static versions of dynamic libraries as well</flag>
-	</use>
 </pkgmetadata>
