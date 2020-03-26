@@ -80,7 +80,7 @@ src_prepare() {
 
 	tar -vxzf "${DISTDIR}"/bootstrap_jdk.tar.gz -C "${WORKDIR}" || die
 
-	tar -vxzf "${DISTDIR}"/freemarker.tar.gz freemarker-2.3.8/lib/freemarker.jar --strip=2 -C "${WORKDIR}" || die
+	tar -vxzf "${DISTDIR}"/freemarker.tar.gz freemarker-2.3.8/lib/freemarker.jar --strip=2 || die
 
 	tar -vxzf "${DISTDIR}"/openj9.tar.gz -C "${S}" || die
 	mv openj9-master openj9 || die
@@ -95,7 +95,7 @@ src_configure() {
 
 	local configuration=(
 		--disable-ccache
-		--with-freemarker-jar="${WORKDIR}/freemarker.jar"
+		--with-freemarker-jar="${S}/freemarker.jar"
 		--with-boot-jdk="${WORKDIR}/jdk8u242-b08"
 		--with-extra-cflags="${CFLAGS}"
 		--with-extra-cxxflags="${CXXFLAGS}"
