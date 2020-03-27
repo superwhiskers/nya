@@ -35,6 +35,8 @@ src_compile() {
 }
 
 src_install() {
+	cd "${S}"
+
 	dobin fzf
 	doman man/man1/*
 	dodoc README.md README-VIM.md CHANGELOG.md
