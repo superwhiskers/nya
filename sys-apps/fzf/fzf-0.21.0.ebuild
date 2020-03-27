@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit golang-build go-module
+inherit go-module
 
 EGO_VENDOR=(
 	"github.com/gdamore/tcell 4d152cc2622d491e1b0a034c3211b9df28c0ba2d"
@@ -16,7 +16,6 @@ EGO_VENDOR=(
 	"golang.org/x/sys d101bd2416d505c0448a6ce8a282482678040a89 github.com/golang/sys"
 	"golang.org/x/text 342b2e1fbaa52c93f31447ad2c6abc048c63e475 github.com/golang/text"
 	)
-EGO_PN="github.com/junegunn/fzf"
 
 DESCRIPTION="A command-line fuzzy finder"
 HOMEPAGE="https://github.com/junegunn/fzf"
@@ -30,6 +29,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 BDEPEND=">=dev-lang/go-1.13"
+
+src_compile() {
+	go build -o fzf
+}
 
 src_install() {
 	dobin fzf
