@@ -12,9 +12,9 @@ EGO_VENDOR=(
 	"github.com/mattn/go-runewidth a4df4ddbff020e131056d91f580a1cdcd806e3ae"
 	"github.com/mattn/go-shellwords 15c6c4ba21242f0256740b9417601db2d57a263b"
 	"github.com/saracen/walker 324a081bae7e580aa0bf3afe8164acb16634afca"
-	"golang.org/x/crypto 69ecbb4d6d5dab05e49161c6e77ea40a030884e1"
-	"golang.org/x/sys d101bd2416d505c0448a6ce8a282482678040a89"
-	"golang.org/x/text 342b2e1fbaa52c93f31447ad2c6abc048c63e475"
+	"golang.org/x/crypto 69ecbb4d6d5dab05e49161c6e77ea40a030884e1 github.com/golang/crypto"
+	"golang.org/x/sys d101bd2416d505c0448a6ce8a282482678040a89 github.com/golang/sys"
+	"golang.org/x/text 342b2e1fbaa52c93f31447ad2c6abc048c63e475 github.com/golang/text"
 	)
 EGO_PN="github.com/junegunn/fzf"
 
