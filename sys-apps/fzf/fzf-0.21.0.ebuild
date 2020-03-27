@@ -31,7 +31,7 @@ KEYWORDS="~amd64 ~x86"
 BDEPEND=">=dev-lang/go-1.13"
 
 src_compile() {
-	go build -o fzf
+	go build -o "${S}"/fzf
 }
 
 src_install() {
