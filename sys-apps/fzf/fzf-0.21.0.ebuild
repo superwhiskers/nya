@@ -13,6 +13,8 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
+EGO_PN="github.com/junegunn/fzf"
+
 BDEPEND=">=dev-lang/go-1.13"
 
 src_install() {
