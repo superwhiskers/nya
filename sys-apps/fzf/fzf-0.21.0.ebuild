@@ -11,7 +11,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-BDEPEND=">=dev-lang/go"
+BDEPEND=">=dev-lang/go-1.13"
 
 src_compile() {
 	cd "${S}"
