@@ -3,15 +3,7 @@
 
 EAPI=7
 
-inherit golang-build golang-vcs-snapshot
-
-DESCRIPTION="A command-line fuzzy finder"
-HOMEPAGE="https://github.com/junegunn/fzf"
-SRC_URI="https://github.com/junegunn/fzf/archive/${PV}.tar.gz"
-
-LICENSE="MIT"
-SLOT="0"
-KEYWORDS="~amd64 ~x86"
+inherit golang-build go-module
 
 EGO_VENDOR=(
 	"github.com/gdamore/tcell 4d152cc2622d491e1b0a034c3211b9df28c0ba2d"
@@ -26,11 +18,20 @@ EGO_VENDOR=(
 	)
 EGO_PN="github.com/junegunn/fzf"
 
+DESCRIPTION="A command-line fuzzy finder"
+HOMEPAGE="https://github.com/junegunn/fzf"
+SRC_URI="
+	https://github.com/junegunn/fzf/archive/${PV}.tar.gz
+	$(go-module_vendor_uris)
+	"
+
+LICENSE="MIT"
+SLOT="0"
+KEYWORDS="~amd64 ~x86"
+
 BDEPEND=">=dev-lang/go-1.13"
 
 src_install() {
-	default
-
 	dobin fzf
 	doman man/man1/*
 	dodoc README.md README-VIM.md CHANGELOG.md
