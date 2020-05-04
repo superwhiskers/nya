@@ -71,6 +71,8 @@ DEPEND="
 # PDEPEND=""
 
 pkg_setup() {
+	java-vm_sandbox-predict /proc/self/coredump_filter
+
 	java-vm-2_pkg_setup
 	java-pkg-2_pkg_setup
 }
