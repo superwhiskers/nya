@@ -92,7 +92,7 @@ src_prepare() {
 }
 
 src_configure() {
-	java-vm_sandbox-predict /proc/self/coredump_filter
+	addpredict /proc/self/coredump_filter #nowarn
 
 	local configuration=(
 		--disable-ccache
@@ -187,4 +187,8 @@ src_install() {
 
 pkg_postinst() {
 	java-vm-2_pkg_postinst
+}
+
+pkg_postrm() {
+	java-vm-2_pkg_postrm
 }
