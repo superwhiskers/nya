@@ -71,14 +71,14 @@ DEPEND="
 # PDEPEND=""
 
 pkg_setup() {
-	java-vm_sandbox-predict /proc/self/coredump_filter
-
 	java-vm-2_pkg_setup
 	java-pkg-2_pkg_setup
 }
 
 src_prepare() {
 	default
+
+	java-vm_sandbox-predict /proc/self/coredump_filter
 
 	tar -vxzf "${DISTDIR}"/bootstrap_jdk.tar.gz -C "${WORKDIR}" || die
 
