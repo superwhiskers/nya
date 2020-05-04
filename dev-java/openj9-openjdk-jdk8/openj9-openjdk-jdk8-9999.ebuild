@@ -78,8 +78,6 @@ pkg_setup() {
 src_prepare() {
 	default
 
-	java-vm_sandbox-predict /proc/self/coredump_filter
-
 	tar -vxzf "${DISTDIR}"/bootstrap_jdk.tar.gz -C "${WORKDIR}" || die
 
 	tar -vxzf "${DISTDIR}"/freemarker.tar.gz freemarker-2.3.8/lib/freemarker.jar --strip=2 || die
@@ -94,6 +92,7 @@ src_prepare() {
 }
 
 src_configure() {
+	java-vm_sandbox-predict /proc/self/coredump_filter
 
 	local configuration=(
 		--disable-ccache
