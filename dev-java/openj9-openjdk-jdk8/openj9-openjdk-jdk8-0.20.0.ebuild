@@ -10,8 +10,8 @@ HOMEPAGE="http://www.eclipse.org/openj9"
 SRC_URI="
 	https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u242-b08_openj9-0.18.1/OpenJDK8U-jdk_x64_linux_openj9_8u242b08_openj9-0.18.1.tar.gz -> bootstrap_jdk.tar.gz
 	https://sourceforge.net/projects/freemarker/files/freemarker/2.3.8/freemarker-2.3.8.tar.gz/download -> freemarker.tar.gz
-	https://github.com/eclipse/openj9/archive/v${PV}-release.tar.gz -> openj9.tar.gz
-	https://github.com/eclipse/openj9-omr/archive/v${PV}-release.tar.gz -> openj9-omr.tar.gz
+	https://github.com/eclipse/openj9/archive/v${PV}-release.tar.gz -> openj9-${PV}.tar.gz
+	https://github.com/eclipse/openj9-omr/archive/v${PV}-release.tar.gz -> openj9-omr-${PV}.tar.gz
 	"
 EGIT_REPO_URI="https://github.com/ibmruntimes/openj9-openjdk-jdk8.git"
 EGIT_BRANCH="openj9-${PV}"
@@ -83,10 +83,10 @@ src_prepare() {
 
 	tar -vxzf "${DISTDIR}"/freemarker.tar.gz freemarker-2.3.8/lib/freemarker.jar --strip=2 || die
 
-	tar -vxzf "${DISTDIR}"/openj9.tar.gz -C "${S}" || die
+	tar -vxzf "${DISTDIR}"/openj9-${PV}.tar.gz -C "${S}" || die
 	mv openj9-${PV}-release openj9 || die
 
-	tar -vxzf "${DISTDIR}"/openj9-omr.tar.gz -C "${S}" || die
+	tar -vxzf "${DISTDIR}"/openj9-omr-${PV}.tar.gz -C "${S}" || die
 	mv openj9-omr-${PV}-release omr || die
 
 	chmod +x configure || die
