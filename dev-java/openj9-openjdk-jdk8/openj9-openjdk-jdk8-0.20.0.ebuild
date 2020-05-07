@@ -83,11 +83,11 @@ src_prepare() {
 
 	tar -vxzf "${DISTDIR}"/freemarker.tar.gz freemarker-2.3.8/lib/freemarker.jar --strip=2 || die
 
-	tar -vxzf "${DISTDIR}"/openj9-${PV}.tar.gz -C "${S}" || die
-	mv openj9-${PV}-release openj9 || die
+	tar -vxzf "${DISTDIR}"/openj9-"${PV}".tar.gz -C "${S}" || die
+	mv openj9-"${PV}"-release openj9 || die
 
-	tar -vxzf "${DISTDIR}"/openj9-omr-${PV}.tar.gz -C "${S}" || die
-	mv openj9-omr-${PV}-release omr || die
+	tar -vxzf "${DISTDIR}"/openj9-omr-"${PV}".tar.gz -C "${S}" || die
+	mv openj9-omr-"${PV}"-release omr || die
 
 	chmod +x configure || die
 }

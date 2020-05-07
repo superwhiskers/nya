@@ -14,3 +14,4 @@ $ sudo layman -o https://github.com/superwhiskers/nya/raw/master/repositories.xm
 - **dev-lang/qbe** - a pure c embeddable compiler backend
 - **dev-libs/libdwarf** - a dwarf object file access library
 - **media-libs/sndio** - a small audio and midi framework part of the openbsd project
+- **x11-misc/compton** - a modified compton ebuild that allows python3.7 and 3.8 in addition to 3.6
