@@ -147,7 +147,7 @@ src_compile() {
 }
 
 src_install() {
-	local dest="/usr/$(get_libdir)/${PN}-live"
+	local dest="/usr/$(get_libdir)/${P}"
 	local ddest="${ED%/}/${dest#/}"
 
 	cd "${S}"/build/*-release/images/j2sdk-image || die
