@@ -3,11 +3,11 @@
 
 EAPI=7
 
-inherit pam systemd
+inherit pam systemd git-r3
 
 DESCRIPTION="A TUI display manager"
 HOMEPAGE="https://github.com/cylgom/ly"
-SRC_URI="https://github.com/cylgom/ly/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+EGIT_REPO_URI="https://github.com/cylgom/ly"
 
 LICENSE="WTFPL-2"
 SLOT="0"
@@ -19,6 +19,11 @@ RDEPEND="x11-apps/xauth
 	sys-libs/ncurses
 	sys-apps/util-linux
 	sys-libs/pam"
+
+src_unpack() {
+	default
+	make github
+}
 
 src_install() {
 	dopamd res/pam.d/ly
