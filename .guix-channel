@@ -3,5 +3,4 @@
 
 (channel
   (version 0)
-  (news-file "news.scm")
   (url "https://github.com/superwhiskers/nya"))

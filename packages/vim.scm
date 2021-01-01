@@ -3,7 +3,7 @@
 
 (define-module (nya packages vim)
 	       #:use-module ((guix licenses) #:prefix license:)
-	       #:use-module (guix packages #:select (base32))
+	       #:use-module ((guix packages) #:select (package base32 origin))
 	       #:use-module ((guix build-system copy) #:select (copy-build-system))
 	       #:use-module ((guix git-download) #:select (git-reference git-fetch)))
 
@@ -26,15 +26,15 @@
 		 (base32
 		   hash))))
 	   (build-system copy-build-system)
-	   (arguments #:install-plan '(
-				       (name "/usr/local/share/nvim/site/pack")))
+	   (arguments (#:install-plan '(
+				       (name "/usr/local/share/nvim/site/pack"))))
 	   (synopsis synopsis)
 	   (description description)
 	   (home-page (if home-page home-page url))
 	   (license license)))
 
 (define-public neovim-nerdtree
-	       (vim-plugin
+	       (neovim-plugin
 		 #:name "nerdtree"
 		 #:version "6.9.11"
 		 #:url "https://github.com/preservim/nerdtree"
