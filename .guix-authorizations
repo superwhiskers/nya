@@ -1,0 +1,8 @@
+;;; -*- mode: scheme; -*- vim: ft=scheme
+;;; a list of allowed openpgp keys for signing commits
+
+(authorizations
+  (version 0)
+
+  (("78C4 DF75 47AF 93D6 B4C6  894D 0134 BBC5 4141 A521"
+    (name "superwhiskers"))))

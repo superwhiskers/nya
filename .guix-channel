@@ -1,0 +1,7 @@
+;;; -*- mode: scheme; -*- vim: ft=scheme
+;;; channel setup file
+
+(channel
+  (version 0)
+  (news-file "news.scm")
+  (url "https://github.com/superwhiskers/nya"))
