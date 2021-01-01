@@ -26,7 +26,7 @@
 		 (base32
 		   hash))))
 	   (build-system copy-build-system)
-	   (arguments (#:install-plan '(
+	   (arguments `(#:install-plan `(
 				       (name "/usr/local/share/nvim/site/pack"))))
 	   (synopsis synopsis)
 	   (description description)
