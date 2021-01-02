@@ -45,7 +45,7 @@
 	   (home-page (if home-page home-page url))
 	   (license license)))
 
-(define nerdtree ; todo: update this one
+(define nerdtree
   (plugin
     #:name "nerdtree"
     #:version "git"
@@ -174,3 +174,13 @@
     #:hash "0l7f80gas6rmiw5m0varsyv3sk3sfkqx0z05hlh4719a304b16pv"
     #:commit "05b8bbc938bdeac4a5ee2d3ae5cf7a7f05e822d3"
     #:license license:expat))
+
+(define rainbow-parentheses
+  (plugin
+    #:name "rainbow_parentheses.vim"
+    #:version "git"
+    #:url "https://github.com/junegunn/rainbow_parentheses.vim"
+    #:synopsis "Simpler Rainbow Parentheses"
+    #:hash "0izbjq6qbia013vmd84rdwjmwagln948jh9labhly0asnhqyrkb8"
+    #:commit "27e7cd73fec9d1162169180399ff8ea9fa28b003"
+    #:license (license:none "https://github.com/junegunn/rainbow_parentheses.vim")))
