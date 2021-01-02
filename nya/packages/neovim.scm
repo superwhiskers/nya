@@ -8,7 +8,7 @@
 	       #:use-module ((guix build-system copy) #:select (copy-build-system))
 	       #:use-module ((guix git-download) #:select (git-reference git-fetch))
 	       #:use-module ((gnu packages vim) #:select (neovim))
-	       #:export (neovim-with-plugins nerdtree iceberg neoformat lightline startify direnv easymotion incsearch incsearch-easymotion cool quick-scope elvish polyglot))
+	       #:export (neovim-with-plugins nerdtree iceberg neoformat lightline startify direnv easymotion incsearch incsearch-easymotion cool quick-scope elvish polyglot rainbow-parentheses))
 
 ;; todo: revise this so that it is simpler to maintain
 
