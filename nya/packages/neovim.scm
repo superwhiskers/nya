@@ -2,20 +2,21 @@
 ;;; a set of packages related to vim plugins
 
 (define-module (nya packages neovim)
-	       #:use-module ((guix licenses) #:prefix license:)
-	       #:use-module ((nya licenses) #:prefix license:)
-	       #:use-module ((guix packages) #:select (package-name package base32 origin))
-	       #:use-module ((guix build-system copy) #:select (copy-build-system))
-	       #:use-module ((guix git-download) #:select (git-reference git-fetch))
-	       #:use-module ((gnu packages vim) #:select (neovim))
-	       #:export (neovim-with-plugins nerdtree iceberg neoformat lightline startify direnv easymotion incsearch incsearch-easymotion cool quick-scope elvish polyglot rainbow-parentheses))
+               #:use-module ((guix licenses) #:prefix license:)
+               #:use-module ((nya licenses) #:prefix license:)
+               #:use-module ((guix packages) #:select (package-name package base32 origin))
+               #:use-module ((guix build-system copy) #:select (copy-build-system))
+               #:use-module ((guix git-download) #:select (git-reference git-fetch))
+               #:use-module ((gnu packages vim) #:select (neovim))
+               #:export (neovim-with-plugins nerdtree iceberg neoformat lightline startify direnv easymotion incsearch incsearch-easymotion cool quick-scope elvish polyglot rainbow-parentheses))
 
 ;; todo: revise this so that it is simpler to maintain
+;; todo: complete the neovim-with-plugins package generator
 
 ;; define a neovim package with the specified plugins
 (define (neovim-with-plugins . plugins)
-	 (package
-	   (inherit neovim)
+  (package
+    (inherit neovim)
 	   (propagated-inputs (map (lambda (plugin)
 			 (let ((name (package-name plugin)))
 			   `(,name ,plugin))) plugins))))
@@ -30,16 +31,21 @@
 	     (origin
 	       (method git-fetch)
 	       (uri (git-reference
-		      (url url)
-		      (commit commit)
-		      (recursive? #t)))
+                (url url)
+                (commit commit)
+                (recursive? #t)))
 	       (file-name name)
 	       (sha256
-		 (base32
-		   hash))))
+           (base32
+             hash))))
 	   (build-system copy-build-system)
-	   (arguments `(#:install-plan (let ((package-directory (string-append "/share/nvim/site/pack/vendor/start/" ,name))) `(
-				       ("./" ,package-directory)))))
+	   (arguments '(#:install-plan
+                  (let
+                    ((package-directory
+                       (string-append
+                         "/share/nvim/site/pack/vendor/start/"
+                         ,name)))
+                    `(("./" ,package-directory)))))
 	   (synopsis synopsis)
 	   (description "")
 	   (home-page (if home-page home-page url))
