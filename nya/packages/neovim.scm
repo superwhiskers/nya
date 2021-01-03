@@ -39,7 +39,7 @@
            (base32
              hash))))
 	   (build-system copy-build-system)
-	   (arguments '(#:install-plan
+	   (arguments `(#:install-plan
                   (let
                     ((package-directory
                        (string-append
