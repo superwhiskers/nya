@@ -17,39 +17,39 @@
 (define (neovim-with-plugins . plugins)
   (package
     (inherit neovim)
-	   (propagated-inputs (map (lambda (plugin)
-			 (let ((name (package-name plugin)))
-			   `(,name ,plugin))) plugins))))
+    (propagated-inputs (map (lambda (plugin)
+                              (let ((name (package-name plugin)))
+                                `(,name ,plugin))) plugins))))
 
 ;; define a neovim plugin
 (define* (plugin
-	   #:key name version url synopsis hash commit home-page license)
-	 (package
-	   (name (string-append "neovim-" name))
-	   (version (string-append version "-" (string-take commit 7)))
-	   (source
-	     (origin
-	       (method git-fetch)
-	       (uri (git-reference
-                (url url)
-                (commit commit)
-                (recursive? #t)))
-	       (file-name name)
-	       (sha256
-           (base32
-             hash))))
-	   (build-system copy-build-system)
-	   (arguments `(#:install-plan
-                  (let
-                    ((package-directory
-                       (string-append
-                         "/share/nvim/site/pack/vendor/start/"
-                         ,name)))
-                    `(("./" ,package-directory)))))
-	   (synopsis synopsis)
-	   (description "")
-	   (home-page (if home-page home-page url))
-	   (license license)))
+           #:key name version url synopsis hash commit home-page license)
+         (package
+           (name (string-append "neovim-" name))
+           (version (string-append version "-" (string-take commit 7)))
+           (source
+             (origin
+               (method git-fetch)
+               (uri (git-reference
+                      (url url)
+                      (commit commit)
+                      (recursive? #t)))
+               (file-name name)
+               (sha256
+                 (base32
+                   hash))))
+           (build-system copy-build-system)
+           (arguments `(#:install-plan
+                        (let
+                          ((package-directory
+                             (string-append
+                               "/share/nvim/site/pack/vendor/start/"
+                               ,name)))
+                          `(("./" ,package-directory)))))
+           (synopsis synopsis)
+           (description "")
+           (home-page (if home-page home-page url))
+           (license license)))
 
 (define nerdtree
   (plugin
