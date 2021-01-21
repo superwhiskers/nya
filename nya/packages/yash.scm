@@ -30,9 +30,9 @@
             "06990k6iai6qnidy1jmyvr9b5mbff9fjwlz5qmy0mk9f6j5kb4w4"))))
     (build-system gnu-build-system)
     (arguments
-      `(#:phases
+      `(#:tests? #f
+        #:phases
         (modify-phases %standard-phases
-                       (delete 'check)
                        (replace 'configure
                                 (lambda* (#:key outputs #:allow-other-keys)
                                          (let ((prefix (assoc-ref outputs "out")))

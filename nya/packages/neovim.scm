@@ -32,8 +32,7 @@
                (method git-fetch)
                (uri (git-reference
                       (url url)
-                      (commit commit)
-                      (recursive? #t)))
+                      (commit commit)))
                (file-name name)
                (sha256
                  (base32
